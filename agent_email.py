@@ -1,13 +1,10 @@
 from langchain_cohere import ChatCohere
-from langchain_core.prompts import ChatPromptTemplate
 from langgraph.prebuilt import create_react_agent
 
 
 from dotenv import load_dotenv
 
 load_dotenv()
-
-prompt = ChatPromptTemplate.from_template("{input}")
 
 
 def agent():
