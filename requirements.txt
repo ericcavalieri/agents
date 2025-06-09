@@ -1,7 +1,8 @@
-langgraph
-langchain-cohere
+langgraph==0.4.8
+langchain-cohere==0.4.4
 python-dotenv
 promptflow
 promptflow-core 
 promptflow-devkit 
 promptflow-azure
+langgraph-supervisor==0.0.27
