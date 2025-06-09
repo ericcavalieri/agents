@@ -1,12 +1,21 @@
 from promptflow.core import tool
 from langchain_core.messages import HumanMessage, AIMessage
 
+from agent_graph_tools import make_agent as multi_agent
+from agent_agenda import make_agent as agent_agenda
+from agent_email import make_agent as agent_email
 
-# from agent_email import make_agent
+import os
 
-# from agent_agenda import make_agent
+from dotenv import load_dotenv
 
-from agent_graph_tools import make_agent
+load_dotenv()
+
+AGENT = {
+    "agent_email": agent_email(),
+    "agent_agenda": agent_agenda(),
+    "multi_agent": multi_agent(),
+}
 
 
 # The inputs section will change based on the arguments of the tool function, after you save the code
@@ -20,6 +29,6 @@ def my_python_tool(chat_history: str, question: str) -> str:
         prompt["messages"].append(AIMessage(content=item["outputs"]["answer"]))
 
     prompt["messages"].append(HumanMessage(content=question))
-    app = make_agent()
+    app = AGENT[os.environ["AGENT_TYPE"]]
 
     return app.invoke(prompt)["messages"][-1].content

@@ -5,11 +5,6 @@ from memory import save_recall_memory, search_recall_memories
 from datetime import datetime
 from util import make_prompt
 
-
-from dotenv import load_dotenv
-
-load_dotenv()
-
 data_hoje = datetime.now()
 data_formatada = data_hoje.strftime("%d de %B de %Y")
 system_prompt = f"""
