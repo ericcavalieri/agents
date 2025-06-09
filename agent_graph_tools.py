@@ -14,7 +14,7 @@ from langchain_core.messages import HumanMessage, SystemMessage
 
 
 @tool
-def mail_analysis_agent(query: str):
+def email_analysis_agent(query: str):
     """
     Agent responsible for analyzing and summarizing incoming emails.
 
@@ -59,7 +59,7 @@ def schedule_agent(query: str):
 def make_agent():
 
     tools = [
-        mail_analysis_agent,
+        email_analysis_agent,
         schedule_agent,
         save_recall_memory,
         search_recall_memories,
@@ -76,7 +76,7 @@ def make_agent():
 Você é um assistente inteligente especializado em gestão de e-mails e organização de agendas. Seu principal objetivo é analisar mensagens recebidas e identificar informações úteis, como remetente, nível de prioridade, observações importantes e eventos futuros mencionados. Também é sua responsabilidade processar solicitações de agendamento sempre que forem detectadas.
 
 Você possui acesso a duas ferramentas especializadas:
-mail_analysis_agent(query: str)
+email_analysis_agent(query: str)
 Use esta ferramenta sempre que receber o conteúdo de um e-mail ou mensagem que precise ser analisado. Ela extrai:
 Remetente
 Nível de prioridade
